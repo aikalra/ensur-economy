@@ -88,6 +88,7 @@ if scale: audit_line += f"<p>1M-party scale chain: <b>{'VALID' if scale.get('aud
 
 live_section = "<p>Continuous run not started.</p>"
 if live and live.get("history"):
+    shaped_total = sum(live.get("fees_shaped_by_product", {}).values())
     months = live["cycle"]
     gpv = sum(live["gpv_by_product"].values()); fees = sum(live["fees_by_product"].values()); lk = sum(live["leaked_by_product"].values())
     rows2 = ""
@@ -97,7 +98,8 @@ if live and live.get("history"):
     live_section = f"""<div class="cards">
 <div class="card"><span>months elapsed</span><b>{months}</b></div>
 <div class="card"><span>cumulative GPV certified</span><b>{cr(gpv)}</b></div>
-<div class="card"><span>certification fees (0.25%)</span><b>{cr(fees)}</b></div>
+<div class="card"><span>certification fees (0.25% reference)</span><b>{cr(fees)}</b></div>
+<div class="card"><span>workflow-shaped fees (month 11+)</span><b>{cr(shaped_total)}</b></div>
 <div class="card"><span>leaked (published)</span><b>{rs(lk)}</b></div>
 <div class="card"><span>leak as % of GPV</span><b>{100*lk/gpv:.3f}%</b></div>
 <div class="card"><span>audit chain</span><b class="ok">{'VALID' if live.get('audit_valid') else 'CHECK'}</b></div></div>
