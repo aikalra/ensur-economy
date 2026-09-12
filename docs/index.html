@@ -30,20 +30,21 @@ h2{font-size:18px;margin:32px 0 10px} p{color:#c3c9d6} .ok{color:#4ade80}
 <td>Rs 0.1 crore</td><td>Rs 25,384</td><td>0.22% of settled value per confirmation window</td></tr>
 <tr class="floor"><td></td><td colspan="8">Structural floor: Escrow confirmation timeout; first-strike-only, risk-tiered windows on repeat.</td></tr></table>
 <h2>Live economy (continuous run)</h2><div class="cards">
-<div class="card"><span>months elapsed</span><b>9</b></div>
-<div class="card"><span>cumulative GPV certified</span><b>Rs 3,807.7 crore</b></div>
-<div class="card"><span>certification fees (0.25%)</span><b>Rs 9.5 crore</b></div>
-<div class="card"><span>leaked (published)</span><b>Rs 4,749,377</b></div>
-<div class="card"><span>leak as % of GPV</span><b>0.012%</b></div>
+<div class="card"><span>months elapsed</span><b>11</b></div>
+<div class="card"><span>cumulative GPV certified</span><b>Rs 4,554.3 crore</b></div>
+<div class="card"><span>certification fees (0.25% reference)</span><b>Rs 11.4 crore</b></div>
+<div class="card"><span>workflow-shaped fees (month 11+)</span><b>Rs 0.4 crore</b></div>
+<div class="card"><span>leaked (published)</span><b>Rs 5,785,563</b></div>
+<div class="card"><span>leak as % of GPV</span><b>0.013%</b></div>
 <div class="card"><span>audit chain</span><b class="ok">VALID</b></div></div>
-<table><tr><th>cycle</th><th>welfare certified</th><th>rejected</th><th>held</th><th>missed fraud</th></tr><tr><td>month 4</td><td>91,774</td><td>8,008</td><td>71</td><td>49</td></tr><tr><td>month 5</td><td>91,725</td><td>8,021</td><td>76</td><td>55</td></tr><tr><td>month 6</td><td>91,686</td><td>8,045</td><td>55</td><td>57</td></tr><tr><td>month 7</td><td>91,641</td><td>8,070</td><td>55</td><td>66</td></tr><tr><td>month 8</td><td>91,570</td><td>8,091</td><td>67</td><td>59</td></tr><tr><td>month 9</td><td>91,502</td><td>8,117</td><td>65</td><td>62</td></tr></table>
+<table><tr><th>cycle</th><th>welfare certified</th><th>rejected</th><th>held</th><th>missed fraud</th></tr><tr><td>month 6</td><td>91,686</td><td>8,045</td><td>55</td><td>57</td></tr><tr><td>month 7</td><td>91,641</td><td>8,070</td><td>55</td><td>66</td></tr><tr><td>month 8</td><td>91,570</td><td>8,091</td><td>67</td><td>59</td></tr><tr><td>month 9</td><td>91,502</td><td>8,117</td><td>65</td><td>62</td></tr><tr><td>month 10</td><td>91,459</td><td>8,141</td><td>49</td><td>67</td></tr><tr><td>month 11</td><td>91,364</td><td>8,167</td><td>74</td><td>56</td></tr></table>
 <h2>Beyond fraud: what certification is worth</h2><div class="cards">
-<div class="card"><span>working capital released early</span><b>Rs 11.7 crore</b></div>
-<div class="card"><span>cost-to-serve savings vs manual</span><b>Rs 26.5 crore</b></div>
-<div class="card"><span>avg settlement time (GPV-weighted)</span><b>8.5d &rarr; minutes</b></div>
-<div class="card"><span>honest users delayed (never denied)</span><b>5,625</b></div>
-<div class="card"><span>honest-decision friction rate</span><b>0.64%</b></div>
-<div class="card"><span>transactions only certification enables</span><b>16,132 / Rs 373.7 crore</b></div></div>
+<div class="card"><span>working capital released early</span><b>Rs 13.9 crore</b></div>
+<div class="card"><span>cost-to-serve savings vs manual</span><b>Rs 32.2 crore</b></div>
+<div class="card"><span>avg settlement time (GPV-weighted)</span><b>8.8d &rarr; minutes</b></div>
+<div class="card"><span>honest users delayed (never denied)</span><b>6,335</b></div>
+<div class="card"><span>honest-decision friction rate</span><b>0.59%</b></div>
+<div class="card"><span>transactions only certification enables</span><b>17,630 / Rs 443.1 crore</b></div></div>
 <p class="sub">Baselines are modeling assumptions in continuous.py (manual verification latency and cost per product, 12% cost of capital), not measured market facts. Settlement compression: what used to wait for manual review - welfare disbursal ~45d, crop survey settlement ~180d, trade document checking ~7d, merchant reconciliation T+2, hospital pre-auth ~2d - settles at certification time. Enabled transactions: sub-break-even merchant tickets, parametric crop payouts with no claim filed, trade deals too small for manual LC economics.</p>
 <h2>Verified workflows - every product is a mini business</h2><p>Each product is a verified workflow: evidence connectors feed an ordered security stack; value settles when every layer passes, holds when unproven, rejects only on contract-false. The stack IS the product.</p>
 <h2 style="font-size:15px">The stacks</h2>
