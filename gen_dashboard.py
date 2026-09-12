@@ -102,6 +102,21 @@ if live and live.get("history"):
 <div class="card"><span>audit chain</span><b class="ok">{'VALID' if live.get('audit_valid') else 'CHECK'}</b></div></div>
 <table><tr><th>cycle</th><th>welfare certified</th><th>rejected</th><th>held</th><th>missed fraud</th></tr>{rows2}</table>"""
 
+value_section = ""
+if live and live.get("value_totals"):
+    vt = live["value_totals"]; hist = [h for h in live["history"] if "value" in h]
+    days = hist[-1]["value"]["settlement_days_avg"] if hist else 0
+    gpv_now = sum(live["gpv_by_product"].values())
+    hd = vt.get("honest_delayed", 0); cert_now = sum(h.get("welfare",{}).get("certified",0)+h.get("hospital",{}).get("certified",0)+h.get("merchant",{}).get("certified",0)+h.get("trade",{}).get("certified",0)+h.get("crop",{}).get("certified",0) for h in live["history"])
+    value_section = f"""<div class="cards">
+<div class="card"><span>working capital released early</span><b>{cr(vt.get('capital_released',0))}</b></div>
+<div class="card"><span>cost-to-serve savings vs manual</span><b>{cr(vt.get('cost_savings',0))}</b></div>
+<div class="card"><span>avg settlement time (GPV-weighted)</span><b>{days}d &rarr; minutes</b></div>
+<div class="card"><span>honest users delayed (never denied)</span><b>{hd:,}</b></div>
+<div class="card"><span>honest-decision friction rate</span><b>{100*hd/max(cert_now,1):.2f}%</b></div>
+<div class="card"><span>transactions only certification enables</span><b>{vt.get('enabled_count',0):,} / {cr(vt.get('enabled_value',0))}</b></div></div>
+<p class="sub">Baselines are modeling assumptions in continuous.py (manual verification latency and cost per product, 12% cost of capital), not measured market facts. Settlement compression: what used to wait for manual review - welfare disbursal ~45d, crop survey settlement ~180d, trade document checking ~7d, merchant reconciliation T+2, hospital pre-auth ~2d - settles at certification time. Enabled transactions: sub-break-even merchant tickets, parametric crop payouts with no claim filed, trade deals too small for manual LC economics.</p>"""
+
 page = f"""<!DOCTYPE html><html><head><meta charset="utf-8"><title>ensur synthetic economy</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <style>
@@ -127,7 +142,7 @@ h2{{font-size:18px;margin:32px 0 10px}} p{{color:#c3c9d6}} .ok{{color:#4ade80}}
 <h2>Products</h2>
 <table><tr><th>product / run</th><th>decisions</th><th>certified</th><th>rejected</th><th>held</th><th>honest denied</th><th>blocked</th><th>leaked</th><th>residual</th></tr>
 {rows}</table>
-<h2>Live economy (continuous run)</h2>{live_section}
+<h2>Live economy (continuous run)</h2>{live_section}\n<h2>Beyond fraud: what certification is worth</h2>{value_section}
 <h2>Audit chains</h2>{audit_line}
 <h2>What the economy taught (product doctrine, discovered not written)</h2>
 <p>1. HOLD for unproven, reject only for contract-false - honest users are delayed, never denied.<br>
