@@ -78,6 +78,16 @@ def advance_cycle():
         c_gpv = 0
     eng.db.execute('DELETE FROM source_events'); eng.commit()
     def bump(d, k, v): d[k] = d.get(k, 0) + v
+    # Workflow-shaped pricing (economy lesson, month 11): per-event where baseline delay is short
+    # vs margin (merchant/trade/hospital), ad-valorem where certification replaces long waiting.
+    # Levels = exemplar sustainable fee (value/3x ROI) normalized to per-event units.
+    SHAPED_PER_EVENT = {"merchant": 2, "trade": 7000, "hospital": 55}   # Rs per settlement/deal/admission
+    shaped = {"merchant": m["stats"].get("certified", 0) * SHAPED_PER_EVENT["merchant"],
+              "trade": t["stats"]["certified"] * SHAPED_PER_EVENT["trade"],
+              "hospital": h["stats"]["certified"] * SHAPED_PER_EVENT["hospital"],
+              "welfare": w_gpv * FEE_RATE, "crop": c_gpv * FEE_RATE}
+    entry["fees_shaped"] = {k: round(v) for k, v in shaped.items()}
+    for k, v in shaped.items(): bump(ledger.setdefault("fees_shaped_by_product", {}), k, v)
     for prod, gpv, leak in (("welfare", w_gpv, wl), ("hospital", h_gpv, h["leaked_value"]),
                             ("merchant", m_gpv, m["leaked_value"]), ("trade", t_gpv, t["leaked_value"]),
                             ("crop", c_gpv, c_out["leaked_value"] if c_out else 0)):
