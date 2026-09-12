@@ -34,3 +34,12 @@ The miss ledger is published, not hidden.
   bound them, publish them.
 
 All source data is synthetic. The economy does not move money.
+
+## State durability and replay recovery
+
+`econ_state/` (population, engine db, ledger) is runtime state and is NOT fully committed. If the working copy is lost:
+1. Clone this repo. `docs/live_ledger.json` is the canonical published ledger - copy it to `econ_state/ledger.json`. Never rewrite published history.
+2. Rebuild physical state: `python3 replay8.py`-style replay of `continuous.init_state()` + N `advance_cycle()` calls. The simulation is seeded and near-deterministic (within ~1% of published cumulative totals); the audit chain validates integrity.
+3. Resume `python3 continuous.py` - one run = one month.
+
+Recovered-from-transcript sources (2026-09-12 container loss): merchant_adv3.py, merchant_adv4.py, crop_adv5.py, trade_adv.py, scale_test.py. merchant_adv4 self-test byte-matches its original outputs (leak 25,384 / settled 11,657,046 / 0.2178%).
