@@ -1,0 +1,166 @@
+{
+  "anatomy": {
+    "welfare": [
+      "welfare_eligible",
+      "registry_valid",
+      "name_match",
+      "property_limit",
+      "trade_conflict_clear",
+      "account_concentration",
+      "identity_unique_on_rolls",
+      "liveness_recent"
+    ],
+    "hospital": [
+      "empanelled_hospital",
+      "patient_real",
+      "patient_alive",
+      "billing_matches_record",
+      "no_concurrent_admission",
+      "liveness_recent"
+    ],
+    "merchant": [
+      "merchant_kyb",
+      "delivery_scanned",
+      "route_physically_plausible",
+      "delivered_at_buyer",
+      "no_buyer_dispute",
+      "counterparty_independent_device",
+      "no_money_loop"
+    ],
+    "trade": [
+      "shipment_filed_with_customs",
+      "invoice_matches_customs",
+      "condition_maintained",
+      "physical_custody_predates_docs",
+      "payee_registry_valid",
+      "doc_uniqueness_global"
+    ],
+    "crop": [
+      "trigger_confirmed",
+      "payee_alive",
+      "land_verified",
+      "acreage_consistent",
+      "name_match",
+      "identity_unique_on_rolls",
+      "account_concentration"
+    ]
+  },
+  "panel": [
+    {
+      "business": "Kirana merchant, 60 deliveries/mo",
+      "workflow": "merchant",
+      "layers": 7,
+      "annual_value_certified": 1519920,
+      "fees_paid": 3800,
+      "capital_released_value": 999,
+      "cost_savings": 3600,
+      "net_value": 800,
+      "roi_on_fees": 0.2,
+      "note": "Avg ticket Rs 2,111 MEASURED in economy. Settles at the doorstep, not T+2. Hold rate 3.5% MEASURED."
+    },
+    {
+      "business": "Wheat farmer, 3 acres, 2 seasons",
+      "workflow": "crop",
+      "layers": 7,
+      "annual_value_certified": 360000,
+      "fees_paid": 900,
+      "capital_released_value": 21304,
+      "cost_savings": 3000,
+      "net_value": 23404,
+      "roi_on_fees": 26.0,
+      "note": "Parametric payout at the drought trigger; no claim filed, no 180-day survey wait. Satellite layer beats survey collusion."
+    },
+    {
+      "business": "Empanelled hospital, 300 admissions/mo",
+      "workflow": "hospital",
+      "layers": 6,
+      "annual_value_certified": 108000000,
+      "fees_paid": 270000,
+      "capital_released_value": 71014,
+      "cost_savings": 540000,
+      "net_value": 341014,
+      "roi_on_fees": 1.3,
+      "note": "Pre-auth at admission, not after 2-day manual review. Honest-delay rate 6.66% MEASURED; genuine readmissions held, never denied."
+    },
+    {
+      "business": "Textile exporter, 4 shipments/mo",
+      "workflow": "trade",
+      "layers": 6,
+      "annual_value_certified": 401987808,
+      "fees_paid": 1004970,
+      "capital_released_value": 925123,
+      "cost_savings": 96000,
+      "net_value": 16153,
+      "roi_on_fees": 0.0,
+      "note": "Avg deal Rs 83.7 lakh MEASURED. Finance releases at physical custody proof, not after 7-day document checking."
+    },
+    {
+      "business": "Welfare household, Rs 2,000/mo",
+      "workflow": "welfare",
+      "layers": 8,
+      "annual_value_certified": 24000,
+      "fees_paid": 60,
+      "capital_released_value": 355,
+      "cost_savings": 3600,
+      "net_value": 3895,
+      "roi_on_fees": 64.9,
+      "note": "Continuous certification: the benefit arrives every month the contract is true. Value is the 45-day enrollment wait removed and zero wrongful exclusion."
+    }
+  ],
+  "pricing_lesson": {
+    "merchant": {
+      "value_delivered_per_year": 4599,
+      "sustainable_fee_per_year": 1533,
+      "flat_fee_roi_at_025pct": 0.2,
+      "verdict": "ad-valorem fails here - price per event, not per rupee"
+    },
+    "crop": {
+      "value_delivered_per_year": 24304,
+      "sustainable_fee_per_year": 8101,
+      "flat_fee_roi_at_025pct": 26.0,
+      "verdict": "ad-valorem 0.25% sustainable"
+    },
+    "hospital": {
+      "value_delivered_per_year": 611014,
+      "sustainable_fee_per_year": 203671,
+      "flat_fee_roi_at_025pct": 1.3,
+      "verdict": "ad-valorem fails here - price per event, not per rupee"
+    },
+    "trade": {
+      "value_delivered_per_year": 1021123,
+      "sustainable_fee_per_year": 340374,
+      "flat_fee_roi_at_025pct": 0.0,
+      "verdict": "ad-valorem fails here - price per event, not per rupee"
+    },
+    "welfare": {
+      "value_delivered_per_year": 3955,
+      "sustainable_fee_per_year": 1318,
+      "flat_fee_roi_at_025pct": 64.9,
+      "verdict": "ad-valorem 0.25% sustainable"
+    }
+  },
+  "measured": {
+    "merchant_ticket": 2111,
+    "merchant_hold_rate": 0.0354,
+    "trade_deal_lakh": 83.75,
+    "hospital_hold_rate": 0.0666
+  },
+  "assumptions": {
+    "fee_rate": 0.0025,
+    "cost_of_capital": 0.12,
+    "baseline_settle_days": {
+      "welfare": 45,
+      "hospital": 2,
+      "merchant": 2,
+      "trade": 7,
+      "crop": 180
+    },
+    "baseline_cost_per_decision": {
+      "welfare": 300,
+      "hospital": 150,
+      "merchant": 5,
+      "trade": 2000,
+      "crop": 500
+    }
+  }
+}
