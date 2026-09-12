@@ -12,13 +12,15 @@ merch = load("merch_adv4.json")           # 3-day timeout run (list)
 crop = load("crop_adv5_s1.json")
 trade = load("trade_adv_w2.json")
 hosp = load("hosp_month3.json")
+live = load("econ_state/ledger.json")
 scale = None
 import subprocess
 out = subprocess.run(["tail", "-14", "/tmp/econ/scale1m.log"], capture_output=True, text=True).stdout
 try:
     scale = json.loads(out[out.index("{"):])
 except Exception:
-    scale = None
+    live = load("econ_state/ledger.json")
+scale = None
 
 def rs(n): return f"Rs {n:,.0f}"
 def cr(n): return f"Rs {n/1e7:,.1f} crore"
@@ -83,6 +85,23 @@ if y: audit_line += f"<p>Consolidated year chain: <b>{'VALID' if y['audit_valid'
 if v7: audit_line += f"<p>v7 experiment chain: <b>{'VALID' if v7['audit_valid'] else 'BROKEN'}</b>.</p>"
 if scale: audit_line += f"<p>1M-party scale chain: <b>{'VALID' if scale.get('audit_valid') else 'BROKEN'}</b> - 1,000,000 decisions, verified in {scale.get('audit_verify_seconds')}s, peak RSS {scale.get('peak_rss_mb')}MB.</p>"
 
+live_section = "<p>Continuous run not started.</p>"
+if live and live.get("history"):
+    months = live["cycle"]
+    gpv = sum(live["gpv_by_product"].values()); fees = sum(live["fees_by_product"].values()); lk = sum(live["leaked_by_product"].values())
+    rows2 = ""
+    for h in live["history"][-6:]:
+        w = h.get("welfare", {})
+        rows2 += f"<tr><td>month {h['cycle']}</td><td>{w.get('certified',0):,}</td><td>{w.get('rejected',0):,}</td><td>{w.get('hold',0):,}</td><td>{w.get('missed_fraud',0):,}</td></tr>"
+    live_section = f"""<div class="cards">
+<div class="card"><span>months elapsed</span><b>{months}</b></div>
+<div class="card"><span>cumulative GPV certified</span><b>{cr(gpv)}</b></div>
+<div class="card"><span>certification fees (0.25%)</span><b>{cr(fees)}</b></div>
+<div class="card"><span>leaked (published)</span><b>{rs(lk)}</b></div>
+<div class="card"><span>leak as % of GPV</span><b>{100*lk/gpv:.3f}%</b></div>
+<div class="card"><span>audit chain</span><b class="ok">{'VALID' if live.get('audit_valid') else 'CHECK'}</b></div></div>
+<table><tr><th>cycle</th><th>welfare certified</th><th>rejected</th><th>held</th><th>missed fraud</th></tr>{rows2}</table>"""
+
 page = f"""<!DOCTYPE html><html><head><meta charset="utf-8"><title>ensur synthetic economy</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <style>
@@ -108,6 +127,7 @@ h2{{font-size:18px;margin:32px 0 10px}} p{{color:#c3c9d6}} .ok{{color:#4ade80}}
 <h2>Products</h2>
 <table><tr><th>product / run</th><th>decisions</th><th>certified</th><th>rejected</th><th>held</th><th>honest denied</th><th>blocked</th><th>leaked</th><th>residual</th></tr>
 {rows}</table>
+<h2>Live economy (continuous run)</h2>{live_section}
 <h2>Audit chains</h2>{audit_line}
 <h2>What the economy taught (product doctrine, discovered not written)</h2>
 <p>1. HOLD for unproven, reject only for contract-false - honest users are delayed, never denied.<br>
