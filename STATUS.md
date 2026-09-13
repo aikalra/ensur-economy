@@ -23,3 +23,17 @@
 ## 10:55 AM Sep 13 - Month 37: GPV Rs 15,232.5cr, audit VALID. First insurance claims CERTIFIED: 35 paid, Rs 17.1L settled; 1,112 more policies bound; 96 held (84 honest). Staged-loss deadline rejections land month 39 by design.
 ## 11:01 AM Sep 13 - Phase 3 built + integrated: certifications.py (product 8). Self-test 4 cycles zero leak, zero honest denials (fixed: organic applicants must be farm operators). A/B validated: 7 existing products byte-identical at 30k x 2. Enters canonical at month 38 (11:47 cycle). Public-verification metric live (registry lookups by third parties).
 ## 11:04 AM Sep 13 - Month 38: certifications (product 8) live in canonical: 632 credentials certified (411 education, 81 organic, 140 technical), 153 fraud blocked, 30 honest held (registry lag). GPV Rs 15,618.3cr, audit VALID. Publish round 4 sent.
+## 12:00 PM Sep 13 - Month 39: GPV Rs 16,067.9cr, audit VALID. Insurance fraud book live on schedule: first staged-loss deadline rejections; cumulative blocked all five classes (staged Rs 2.07L, inflated Rs 5.08L, collusion Rs 1.78L, cross-insurer dup Rs 56k, ghost apps Rs 3.29L). Phase 4 built: loans.py - credit underwritten from the engines OWN certified decision history (the ledger is the credit bureau); fixed loan-stacking direction, loan maturity, double-pledge needing an existing lien. A/B validation running.
+
+## 2026-09-13 ~2:00 PM — product 9 (credit/loans) live in canonical; months 40-41
+- Credit integrated into continuous.py (rng sequenced last; A/B validated byte-identical on existing products, 30k×2) at 12:52 PM.
+- Anomaly: first canonical launch died silently (OOM signature — credit's GROUP BY preload over the 7.7GB decisions table + resident population on the 2GB box). A second process completed cycle 40 just before I caught it; ledger never at risk (end-of-cycle writes, WAL-safe).
+- Fix: loans.py now builds additive index ix_decisions_subject once and does indexed per-applicant lookups — memory-flat. Self-test re-run clean.
+- Month 40: credit 382 loans certified, ₹19.3cr settled, 62 mortgages, 101 stacked/fraud blocked. Month 41: 391 loans, ₹17.9cr, 55 mortgages. Zero credit leakage both cycles.
+- Canonical now NINE commercial products, 41 months, audit VALID. Cumulative GPV ₹16,948.7cr, fees ₹42.37cr, structural leak ₹2.31cr (0.0136%).
+
+## 2026-09-13 ~2:05 PM — Phase 5 built: general verified workflows (product 10)
+- workflows.py: any multi-party process as a mini-business - procurement, freelance, rental. Spec hash locked at funding, evidence-locked steps, escrow milestones, independent corroborant per step, evidence deadline (6 cycles: staged flows die, escrow returns), shared invoice registry across companies (the replay net - the 4x registry lesson at workflow altitude). Pricing 0.30% of settled milestone value.
+- Fraud classes: ghost counterparty, invoice replay, fake step evidence, spec bait-and-switch. Self-test 4 cycles: all blocked, ZERO leak, audit valid (workflows_c4.json). Fixed one self-test edge: invoice_replay with an empty registry now falls back to fake_step_evidence (same pattern as loans double-pledge fallback).
+- A/B non-perturbation: 30k x 2 cycles, HEAD vs patched - every existing product byte-identical; only diff is the added workflows key in fees_shaped. rng sequenced last.
+- Canonical cycle 42 launched 2:04 PM - first canonical month with ten products.
