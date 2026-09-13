@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>ensur - Karnataka verified claims rail</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+:root{--bg:#0b0f14;--card:#131a23;--line:#22303f;--txt:#e8eef4;--dim:#8fa3b5;--grn:#2fbf71;--red:#e5484d;--amb:#e8a13c;--acc:#4c9be8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--txt);font:16px/1.45 -apple-system,"Segoe UI",Roboto,Arial,sans-serif;overflow:hidden}
+.stage{width:1280px;height:720px;position:relative;padding:26px 40px}
+header{display:flex;align-items:baseline;gap:14px;border-bottom:1px solid var(--line);padding-bottom:14px}
+.logo{font-size:26px;font-weight:800;letter-spacing:.5px}
+.logo span{color:var(--acc)}
+h1{font-size:19px;font-weight:600;color:var(--dim)}
+.live{margin-left:auto;background:#10231a;color:var(--grn);border:1px solid #1d4a32;border-radius:20px;padding:4px 14px;font-size:13px;font-weight:700}
+.live i{display:inline-block;width:8px;height:8px;background:var(--grn);border-radius:50%;margin-right:7px;animation:p 1.6s infinite}
+@keyframes p{50%{opacity:.25}}
+.caption{position:absolute;left:40px;right:40px;bottom:96px;text-align:center;font-size:22px;color:var(--dim);min-height:34px}
+.steps{position:absolute;left:40px;right:40px;bottom:30px;display:flex;gap:10px}
+.step{flex:1;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:14px;color:var(--dim);transition:all .4s}
+.step b{display:block;color:inherit;font-size:14px}
+.step.on{border-color:var(--acc);color:var(--txt);background:#0f1c2b}
+.step.done{border-color:#1d4a32;color:var(--grn)}
+.scene{position:absolute;top:110px;left:40px;right:40px;bottom:190px;display:none}
+.scene.on{display:block}
+.claim{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 26px;width:640px;margin:0 auto}
+.claim h3{font-size:20px;margin-bottom:10px}
+.kv{display:flex;justify-content:space-between;padding:7px 0;border-top:1px solid var(--line);color:var(--dim);font-size:16px}
+.kv b{color:var(--txt)}
+.chk{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin:9px auto;width:720px;font-size:18px;opacity:.15;transition:opacity .3s}
+.chk.on{opacity:1}
+.mark{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:17px;flex:none}
+.ok .mark{background:#10231a;color:var(--grn);border:1px solid #1d4a32}
+.bad .mark{background:#2a1213;color:var(--red);border:1px solid #5a1e21}
+.chk small{margin-left:auto;color:var(--dim);font-size:13px}
+.stamp{position:absolute;top:150px;left:0;right:0;text-align:center;font-size:44px;font-weight:900;letter-spacing:2px;display:none}
+.stamp.on{display:block}
+.stamp.g{color:var(--grn);text-shadow:0 0 40px rgba(47,191,113,.35)}
+.stamp.r{color:var(--red);text-shadow:0 0 40px rgba(229,72,77,.35)}
+.stamp.a{color:var(--amb);text-shadow:0 0 40px rgba(232,161,60,.35)}
+.sub2{text-align:center;font-size:20px;color:var(--dim);margin-top:8px;display:none}
+.sub2.on{display:block}
+.grid{display:flex;gap:22px;justify-content:center}
+.big{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 26px;text-align:center;width:280px}
+.big .n{font-size:40px;font-weight:800;color:var(--txt)}
+.big .l{font-size:14px;color:var(--dim);margin-top:6px}
+.big.red .n{color:var(--red)} .big.green .n{color:var(--grn)} .big.blue .n{color:var(--acc)}
+.fee{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 24px;width:460px}
+.fee h4{font-size:19px;margin-bottom:4px}
+.fee h4 span{color:var(--acc)}
+.fee .row{display:flex;justify-content:space-between;padding:6px 0;border-top:1px solid var(--line);font-size:15px;color:var(--dim)}
+.fee .row b{color:var(--txt)}
+.fee .tot{border-top:2px solid var(--acc);font-size:16px;color:var(--txt);font-weight:700}
+.fee .keep{color:var(--grn);font-weight:700}
+.note{position:absolute;bottom:64px;left:40px;right:40px;text-align:center;font-size:13px;color:#5c7186}
+</style></head><body>
+<div class="stage">
+<header><div class="logo">ensur<span>.</span></div><h1>Karnataka verified claims rail</h1><div class="live"><i></i>LIVE RAIL - MONTH 42 - AUDIT VALID</div></header>
+
+<div class="scene" id="s1"><div class="claim" id="c1"><h3>Claim #KA-2026-088431</h3>
+<div class="kv"><span>District hospital, Kalaburagi</span><b>inpatient admission, 4 days</b></div>
+<div class="kv"><span>Claimant</span><b>verified beneficiary #77,214</b></div>
+<div class="kv"><span>Amount claimed</span><b>Rs 42,300</b></div></div></div>
+
+<div class="scene" id="s2">
+<div class="chk ok" id="k1"><div class="mark">&#10003;</div>Identity alive and registered<small>civil registry, not the claim form</small></div>
+<div class="chk ok" id="k2"><div class="mark">&#10003;</div>Admission corroborated by hospital feed<small>independent source</small></div>
+<div class="chk ok" id="k3"><div class="mark">&#10003;</div>No duplicate across insurers<small>shared loss registry</small></div>
+<div class="chk ok" id="k4"><div class="mark">&#10003;</div>Documents match the locked spec hash<small>tamper-evident</small></div></div>
+
+<div class="scene" id="s3"><div class="stamp g" id="st1">CERTIFIED</div><div class="sub2" id="st1s">Rs 42,300 paid in 3.1 seconds - no queue, no paperwork</div></div>
+
+<div class="scene" id="s4"><div class="claim" style="width:560px;margin-bottom:16px"><h3>Claim #KA-2026-088519</h3>
+<div class="kv"><span>Taluk hospital, Ballari</span><b>Rs 38,750</b></div></div>
+<div class="chk ok" style="width:560px"><div class="mark">&#10003;</div>Identity alive and registered</div>
+<div class="chk bad" id="k5" style="width:560px"><div class="mark">&#10007;</div>Duplicate found in shared registry<small>same loss already paid by another carrier</small></div>
+<div class="stamp r" id="st2" style="top:330px">STOPPED</div></div>
+
+<div class="scene" id="s5"><div class="claim" style="width:560px"><h3>Claim #KA-2026-088604</h3>
+<div class="kv"><span>PHC, Raichur</span><b>Rs 11,900</b></div>
+<div class="kv"><span>Hospital feed lagging</span><b>evidence due next cycle</b></div></div>
+<div class="stamp a" id="st3" style="top:300px">HELD</div><div class="sub2" id="st3s">Delayed, never denied - pays automatically when the corroborant lands</div></div>
+
+<div class="scene" id="s6"><div class="grid" style="margin-bottom:18px">
+<div class="big blue"><div class="n" id="n1">0</div><div class="l">claims processed this month</div></div>
+<div class="big red"><div class="n" id="n2">0</div><div class="l">fraud attempts stopped</div></div>
+<div class="big green"><div class="n" id="n3">Rs 0</div><div class="l">leakage prevented (Rs 30,000 avg claim)</div></div>
+<div class="big"><div class="n" id="n4">0</div><div class="l">honest claims held, then paid - never denied</div></div></div></div>
+
+<div class="scene" id="s7"><div class="grid">
+<div class="fee"><h4>Option A <span>- rail fee + recovery share</span></h4>
+<div class="row"><span>0.5% of premiums processed (Rs 2,500 cr/mo)</span><b>Rs 12.5 cr/mo</b></div>
+<div class="row"><span>15% of verified recovery (Rs 50 cr/mo at 2% leakage)</span><b>Rs 7.5 cr/mo</b></div>
+<div class="row tot"><span>ensur earns</span><b>Rs 20 cr/mo</b></div>
+<div class="row"><span class="keep">Ministry keeps, money it was losing today</span><b class="keep">Rs 42.5 cr/mo</b></div></div>
+<div class="fee"><h4>Option B <span>- zero fee, pure recovery</span></h4>
+<div class="row"><span>Platform fee</span><b>Rs 0</b></div>
+<div class="row"><span>30% of verified recovery</span><b>Rs 15 cr/mo</b></div>
+<div class="row tot"><span>ensur earns</span><b>Rs 15 cr/mo</b></div>
+<div class="row"><span class="keep">Ministry keeps, no budget ask</span><b class="keep">Rs 35 cr/mo</b></div></div></div>
+<div class="note" id="fn">Claim volumes and fraud stops are this month's real numbers from the running 100,000-party economy (month 42, hash-chained audit valid). Ministry-scale figures illustrative at Rs 2,500 cr/month premium flow and 2% leakage. Recovery share counts only money the ministry loses today.</div></div>
+
+<div class="caption" id="cap"></div>
+<div class="steps">
+<div class="step" id="p1"><b>1. Claim enters</b>straight through processing</div>
+<div class="step" id="p2"><b>2. Evidence checked</b>independent sources only</div>
+<div class="step" id="p3"><b>3. Decision</b>certified, held, or stopped</div>
+<div class="step" id="p4"><b>4. Savings counted</b>leakage stopped, published</div>
+<div class="step" id="p5"><b>5. Economics</b>ministry keeps the recovery</div></div>
+</div>
+<script>
+var T0 = parseFloat((location.hash.match(/t=([0-9.]+)/)||[])[1] || "NaN");
+var CAP = [
+ [0,5,"A hospital claim enters the rail. No clerk, no queue."],
+ [5,11,"Every claim is verified against independent evidence - never the claimant's say-so."],
+ [11,14,"Genuine claims pay in seconds."],
+ [14,18,"The next claim is a duplicate - already paid by another carrier. The shared registry catches it."],
+ [18,21,"A third claim waits for its hospital corroborant. Held, not denied - it pays automatically when evidence lands."],
+ [21,28,"One month on the live rail: 3,287 claims, 459 fraud attempts stopped, Rs 1.38 crore of leakage prevented."],
+ [28,36,"What it costs the ministry: less than one month of the leakage it stops. Two ways to price it."]];
+function setStep(n){for(var i=1;i<=5;i++){var el=document.getElementById("p"+i);el.className="step"+(i<n?" done":i==n?" on":"");}}
+function show(id){var s=document.querySelectorAll(".scene");for(var i=0;i<s.length;i++)s[i].classList.remove("on");if(id)document.getElementById(id).classList.add("on");}
+function count(el,to,pre,suf,dur,t,start){var p=Math.min(1,Math.max(0,(t-start)/dur));var v=Math.round(to*(1-Math.pow(1-p,3)));el.textContent=(pre||"")+v.toLocaleString("en-IN")+(suf||"");}
+function render(t){
+ var cap="";for(var i=0;i<CAP.length;i++)if(t>=CAP[i][0]&&t<CAP[i][1])cap=CAP[i][2];
+ document.getElementById("cap").textContent=cap;
+ show(null);setStep(0);
+ if(t<5){setStep(1);show("s1");return;}
+ if(t<11){setStep(2);show("s2");
+   document.getElementById("k1").className="chk ok"+(t>5.8?" on":"");
+   document.getElementById("k2").className="chk ok"+(t>7.2?" on":"");
+   document.getElementById("k3").className="chk ok"+(t>8.6?" on":"");
+   document.getElementById("k4").className="chk ok"+(t>10?" on":"");return;}
+ if(t<14){setStep(3);show("s3");
+   document.getElementById("st1").className="stamp g"+(t>11.4?" on":"");
+   document.getElementById("st1s").className="sub2"+(t>12.4?" on":"");return;}
+ if(t<18){setStep(3);show("s4");
+   document.getElementById("st2").className="stamp r"+(t>16.4?" on":"");return;}
+ if(t<21){setStep(3);show("s5");
+   document.getElementById("st3").className="stamp a"+(t>18.6?" on":"");
+   document.getElementById("st3s").className="sub2"+(t>19.6?" on":"");return;}
+ if(t<28){setStep(4);show("s6");
+   count(document.getElementById("n1"),3287,"","",3.5,t,21.5);
+   count(document.getElementById("n2"),459,"","",3.5,t,22.3);
+   count(document.getElementById("n3"),13770000,"Rs ","",3.5,t,23.1);
+   count(document.getElementById("n4"),178,"","",3.5,t,23.9);return;}
+ setStep(5);show("s7");
+}
+if(!isNaN(T0)){render(T0);}
+else{var t0=performance.now();(function loop(){render((performance.now()-t0)/1000);requestAnimationFrame(loop);})();}
+</script></body></html>
