@@ -15,3 +15,4 @@
 
 ## Update 12:55 AM Sep 13
 - MONTH 25: cumulative GPV crossed Rs 10,000cr (Rs 10,247.3cr), leak Rs 1.32cr (0.0129%), audit VALID. Rail round 7 (month-24 bundle) never reached the publisher; re-sending month-25 bundle directly.
+## 8:33 AM Sep 13 — month 33: GPV ₹13,541.6cr, fees ₹33.85cr, leak ₹1.75cr (0.0129%), audit VALID. agent_commerce (product 6) live in canonical. 1M solo test failed: swap storm on 2GB box even alone, killed cleanly pre-telemetry; canonical untouched. Streaming sqlite refactor required for 1M (or external host).
