@@ -1,0 +1,67 @@
+[
+ {
+  "stats": {
+   "policies_bound": 215,
+   "applications_declined": 20,
+   "honest_application_declined": 9,
+   "hold": 15,
+   "honest_held": 12
+  },
+  "leaked_value": 0,
+  "blocked_value_by_kind": {
+   "ghost_application": 13200
+  }
+ },
+ {
+  "stats": {
+   "policies_bound": 218,
+   "applications_declined": 12,
+   "honest_application_declined": 5,
+   "hold": 20,
+   "honest_held": 15,
+   "certified": 6,
+   "value_settled": 264534
+  },
+  "leaked_value": 0,
+  "blocked_value_by_kind": {
+   "ghost_application": 8400
+  }
+ },
+ {
+  "stats": {
+   "policies_bound": 237,
+   "applications_declined": 7,
+   "honest_application_declined": 3,
+   "hold": 18,
+   "honest_held": 15,
+   "certified": 11,
+   "value_settled": 557078,
+   "rejected": 2,
+   "fraud_blocked": 2
+  },
+  "leaked_value": 0,
+  "blocked_value_by_kind": {
+   "ghost_application": 4800,
+   "inflated_claim": 252790
+  }
+ },
+ {
+  "stats": {
+   "policies_bound": 247,
+   "applications_declined": 16,
+   "honest_application_declined": 5,
+   "hold": 14,
+   "honest_held": 13,
+   "certified": 9,
+   "value_settled": 384713,
+   "rejected": 3,
+   "fraud_blocked": 3
+  },
+  "leaked_value": 0,
+  "blocked_value_by_kind": {
+   "ghost_application": 13200,
+   "inflated_claim": 119198,
+   "staged_loss": 123655
+  }
+ }
+]
