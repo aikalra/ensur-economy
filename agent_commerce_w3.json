@@ -1,0 +1,83 @@
+[
+  {
+    "rule_pack": "agent-commerce-v1",
+    "cycle": 1,
+    "stats": {
+      "certified": 2699,
+      "honest_paid": 2699,
+      "value_settled": 10271301,
+      "micro_contracts": 1533,
+      "micro_value": 319467,
+      "hold": 192,
+      "honest_held": 192,
+      "rejected": 161,
+      "fraud_blocked": 161
+    },
+    "blocked_value_by_kind": {
+      "non_delivery": 103618,
+      "spec_gaming": 96009,
+      "deliverable_substitution": 192795,
+      "escrow_unfunded": 24234,
+      "sybil_reputation": 2694,
+      "milestone_skip": 32639
+    },
+    "leaked_value": 0,
+    "miss_examples": []
+  },
+  {
+    "rule_pack": "agent-commerce-v1",
+    "cycle": 2,
+    "stats": {
+      "held_then_released": 154,
+      "held_then_blocked": 38,
+      "certified": 2721,
+      "honest_paid": 2721,
+      "value_settled": 10481879,
+      "micro_contracts": 1550,
+      "micro_value": 334050,
+      "hold": 189,
+      "honest_held": 189,
+      "rejected": 154,
+      "fraud_blocked": 154
+    },
+    "blocked_value_by_kind": {
+      "honest": 161562,
+      "deliverable_substitution": 158395,
+      "milestone_skip": 11243,
+      "sybil_reputation": 44236,
+      "escrow_unfunded": 34432,
+      "spec_gaming": 122119,
+      "non_delivery": 104071
+    },
+    "leaked_value": 0,
+    "miss_examples": []
+  },
+  {
+    "rule_pack": "agent-commerce-v1",
+    "cycle": 3,
+    "stats": {
+      "held_then_released": 159,
+      "held_then_blocked": 30,
+      "certified": 2665,
+      "honest_paid": 2665,
+      "value_settled": 10445835,
+      "micro_contracts": 1537,
+      "micro_value": 318963,
+      "rejected": 152,
+      "fraud_blocked": 152,
+      "hold": 184,
+      "honest_held": 184
+    },
+    "blocked_value_by_kind": {
+      "honest": 118520,
+      "non_delivery": 117166,
+      "deliverable_substitution": 231244,
+      "spec_gaming": 126371,
+      "milestone_skip": 73435,
+      "escrow_unfunded": 42739,
+      "sybil_reputation": 32093
+    },
+    "leaked_value": 0,
+    "miss_examples": []
+  }
+]
