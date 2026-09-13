@@ -1,38 +1,38 @@
 {
  "note": "Rolling published artifact: cumulative totals plus the last 12 months. The complete hash-chained history is canonical in the engine db on the build box.",
- "cycle": 42,
+ "cycle": 45,
  "audit_valid": true,
- "gpv_total": 173935437949,
- "fees_total": 434838594.8725,
- "leaked_total": 23602082,
+ "gpv_total": 186294964630,
+ "fees_total": 465737411.57500005,
+ "leaked_total": 25237758,
  "gpv_by_product": {
-  "welfare": 7625372000,
-  "hospital": 3345420000,
-  "merchant": 159671895,
-  "trade": 160836400000,
+  "welfare": 8161676000,
+  "hospital": 3581370000,
+  "merchant": 170913524,
+  "trade": 171716100000,
   "crop": 1267080000,
-  "agent_commerce": 103398928,
-  "insurance": 15780560,
-  "certifications": 28200400,
-  "credit": 554114166,
-  "workflows": 0
+  "agent_commerce": 133612624,
+  "insurance": 24676391,
+  "certifications": 46367200,
+  "credit": 1078130294,
+  "workflows": 115038597
  },
  "fees_by_product": {
-  "welfare": 19063430.0,
-  "hospital": 8363550.0,
-  "merchant": 399179.73750000005,
-  "trade": 402091000.0,
+  "welfare": 20404190.0,
+  "hospital": 8953425.0,
+  "merchant": 427283.81000000006,
+  "trade": 429290250.0,
   "crop": 3167700.0,
-  "agent_commerce": 258497.32,
-  "insurance": 39451.4,
-  "certifications": 70501.0,
-  "credit": 1385285.415,
-  "workflows": 0.0
+  "agent_commerce": 334031.56000000006,
+  "insurance": 61690.97750000001,
+  "certifications": 115918.0,
+  "credit": 2695325.735,
+  "workflows": 287596.4925
  },
  "leaked_by_product": {
-  "welfare": 6192000,
-  "hospital": 16920000,
-  "merchant": 490082,
+  "welfare": 6512000,
+  "hospital": 18180000,
+  "merchant": 545758,
   "trade": 0,
   "crop": 0,
   "agent_commerce": 0,
@@ -42,203 +42,6 @@
   "workflows": 0
  },
  "history": [
-  {
-   "cycle": 31,
-   "welfare": {
-    "certified": 90207,
-    "honest_paid": 90158,
-    "rejected": 8574,
-    "fraud_blocked": 8574,
-    "hold": 69,
-    "honest_held": 63,
-    "missed_fraud": 49,
-    "fraud_held": 6
-   },
-   "hospital": {
-    "hold": 164,
-    "honest_held": 136,
-    "rejected": 514,
-    "fraud_blocked": 445,
-    "certified": 2711,
-    "honest_paid": 2699,
-    "false_reject": 69,
-    "fraud_held": 28,
-    "missed_fraud": 12
-   },
-   "merchant": {
-    "held_then_released": 87,
-    "honest_released": 85,
-    "held_then_blocked": 17,
-    "fraud_blocked": 81,
-    "missed_fraud": 10,
-    "certified": 1838,
-    "honest_paid": 1838,
-    "value_settled": 3758462,
-    "hold": 112,
-    "honest_held": 98,
-    "rejected": 72,
-    "fraud_held": 14
-   },
-   "trade": {
-    "certified": 498,
-    "honest_paid": 498,
-    "value_settled_lakh": 42908,
-    "rejected": 44,
-    "fraud_blocked": 30,
-    "false_reject": 14
-   },
-   "fees_shaped": {
-    "merchant": 3676,
-    "trade": 3486000,
-    "hospital": 149105,
-    "welfare": 451035,
-    "crop": 0
-   },
-   "value": {
-    "capital_released": 12599805.01610959,
-    "cost_savings": 28472034.92,
-    "honest_delayed": 345,
-    "enabled_count": 767,
-    "enabled_value": 429643769.3,
-    "settlement_days_avg": 8.4
-   }
-  },
-  {
-   "cycle": 32,
-   "welfare": {
-    "certified": 90142,
-    "honest_paid": 90095,
-    "rejected": 8592,
-    "fraud_blocked": 8592,
-    "hold": 74,
-    "honest_held": 61,
-    "missed_fraud": 47,
-    "fraud_held": 13
-   },
-   "hospital": {
-    "certified": 2663,
-    "honest_paid": 2647,
-    "rejected": 496,
-    "fraud_blocked": 411,
-    "hold": 201,
-    "honest_held": 172,
-    "missed_fraud": 16,
-    "false_reject": 85,
-    "fraud_held": 29
-   },
-   "merchant": {
-    "held_then_released": 98,
-    "honest_released": 98,
-    "held_then_blocked": 14,
-    "fraud_blocked": 79,
-    "missed_fraud": 7,
-    "hold": 131,
-    "honest_held": 118,
-    "certified": 1766,
-    "honest_paid": 1766,
-    "value_settled": 3608034,
-    "rejected": 73,
-    "fraud_held": 13,
-    "false_reject": 1
-   },
-   "trade": {
-    "certified": 436,
-    "honest_paid": 436,
-    "value_settled_lakh": 35655,
-    "rejected": 48,
-    "false_reject": 21,
-    "fraud_blocked": 27
-   },
-   "fees_shaped": {
-    "merchant": 3532,
-    "trade": 3052000,
-    "hospital": 146465,
-    "welfare": 450710,
-    "crop": 0
-   },
-   "value": {
-    "capital_released": 10927652.405917808,
-    "cost_savings": 28320979.86,
-    "honest_delayed": 406,
-    "enabled_count": 727,
-    "enabled_value": 357091205.1,
-    "settlement_days_avg": 8.7
-   }
-  },
-  {
-   "cycle": 33,
-   "welfare": {
-    "certified": 90099,
-    "honest_paid": 90044,
-    "rejected": 8612,
-    "fraud_blocked": 8612,
-    "hold": 58,
-    "fraud_held": 10,
-    "honest_held": 48,
-    "missed_fraud": 55
-   },
-   "hospital": {
-    "hold": 184,
-    "fraud_held": 27,
-    "certified": 2623,
-    "honest_paid": 2610,
-    "rejected": 519,
-    "false_reject": 77,
-    "fraud_blocked": 442,
-    "honest_held": 157,
-    "missed_fraud": 13
-   },
-   "merchant": {
-    "held_then_blocked": 23,
-    "honest_released": 118,
-    "held_then_released": 108,
-    "fraud_blocked": 104,
-    "missed_fraud": 1,
-    "certified": 1748,
-    "honest_paid": 1748,
-    "value_settled": 3683652,
-    "rejected": 93,
-    "hold": 96,
-    "honest_held": 79,
-    "fraud_held": 17,
-    "false_reject": 1
-   },
-   "trade": {
-    "certified": 422,
-    "honest_paid": 422,
-    "value_settled_lakh": 36172,
-    "rejected": 43,
-    "fraud_blocked": 31,
-    "false_reject": 12
-   },
-   "agent_commerce": {
-    "certified": 2679,
-    "honest_paid": 2679,
-    "value_settled": 10909321,
-    "micro_contracts": 1502,
-    "micro_value": 318498,
-    "hold": 152,
-    "honest_held": 152,
-    "rejected": 176,
-    "fraud_blocked": 176
-   },
-   "fees_shaped": {
-    "merchant": 3496,
-    "trade": 2954000,
-    "hospital": 144265,
-    "agent_commerce": 2679,
-    "welfare": 450495,
-    "crop": 0
-   },
-   "value": {
-    "capital_released": 11048208.20547945,
-    "cost_savings": 28541838.580000002,
-    "honest_delayed": 490,
-    "enabled_count": 717,
-    "enabled_value": 362272547.8,
-    "settlement_days_avg": 8.6
-   }
-  },
   {
    "cycle": 34,
    "welfare": {
@@ -1101,6 +904,355 @@
     "enabled_count": 9684,
     "enabled_value": 559776591.85,
     "settlement_days_avg": 15.4
+   }
+  },
+  {
+   "cycle": 43,
+   "welfare": {
+    "certified": 89452,
+    "honest_paid": 89401,
+    "rejected": 8836,
+    "fraud_blocked": 8836,
+    "missed_fraud": 51,
+    "hold": 61,
+    "honest_held": 46,
+    "fraud_held": 15
+   },
+   "hospital": {
+    "certified": 2650,
+    "honest_paid": 2637,
+    "hold": 203,
+    "honest_held": 162,
+    "rejected": 511,
+    "fraud_blocked": 431,
+    "false_reject": 80,
+    "fraud_held": 41,
+    "missed_fraud": 13
+   },
+   "merchant": {
+    "held_then_released": 90,
+    "honest_released": 90,
+    "held_then_blocked": 15,
+    "fraud_blocked": 68,
+    "missed_fraud": 8,
+    "certified": 1795,
+    "honest_paid": 1795,
+    "value_settled": 3599505,
+    "hold": 118,
+    "honest_held": 105,
+    "rejected": 61,
+    "fraud_held": 13
+   },
+   "trade": {
+    "certified": 444,
+    "honest_paid": 444,
+    "value_settled_lakh": 35189,
+    "rejected": 47,
+    "false_reject": 17,
+    "fraud_blocked": 30
+   },
+   "agent_commerce": {
+    "held_then_blocked": 25,
+    "held_then_released": 138,
+    "rejected": 148,
+    "fraud_blocked": 148,
+    "certified": 2547,
+    "honest_paid": 2547,
+    "value_settled": 9671853,
+    "micro_contracts": 1430,
+    "micro_value": 303970,
+    "hold": 179,
+    "honest_held": 179
+   },
+   "insurance": {
+    "policies_bound": 1116,
+    "applications_declined": 103,
+    "honest_application_declined": 23,
+    "hold": 104,
+    "honest_held": 90,
+    "rejected": 6,
+    "fraud_blocked": 6,
+    "certified": 64,
+    "value_settled": 3299886
+   },
+   "certifications": {
+    "certified": 656,
+    "certified_education": 394,
+    "value_certified": 6209600,
+    "rejected": 150,
+    "fraud_blocked": 150,
+    "hold": 69,
+    "honest_held": 69,
+    "certified_technical": 179,
+    "certified_organic": 83,
+    "public_verifications": 3456
+   },
+   "workflows": {
+    "opened": 835
+   },
+   "credit": {
+    "certified": 378,
+    "value_settled": 186048510,
+    "mortgages": 59,
+    "rejected": 88,
+    "fraud_blocked": 88
+   },
+   "fees_shaped": {
+    "merchant": 3590,
+    "trade": 3108000,
+    "hospital": 145750,
+    "agent_commerce": 2547,
+    "insurance": 12800,
+    "certifications": 155240,
+    "credit": 189000,
+    "workflows": 0,
+    "welfare": 447260,
+    "crop": 0
+   },
+   "value": {
+    "capital_released": 11357415.318246575,
+    "cost_savings": 29106615.28,
+    "honest_delayed": 734,
+    "enabled_count": 739,
+    "enabled_value": 352429925.75,
+    "settlement_days_avg": 8.7
+   }
+  },
+  {
+   "cycle": 44,
+   "welfare": {
+    "certified": 89379,
+    "honest_paid": 89329,
+    "rejected": 8866,
+    "fraud_blocked": 8866,
+    "hold": 60,
+    "honest_held": 51,
+    "missed_fraud": 50,
+    "fraud_held": 9
+   },
+   "hospital": {
+    "certified": 2617,
+    "honest_paid": 2603,
+    "rejected": 459,
+    "fraud_blocked": 384,
+    "hold": 184,
+    "honest_held": 150,
+    "false_reject": 75,
+    "missed_fraud": 14,
+    "fraud_held": 34
+   },
+   "merchant": {
+    "held_then_released": 103,
+    "honest_released": 105,
+    "held_then_blocked": 15,
+    "missed_fraud": 7,
+    "fraud_blocked": 81,
+    "certified": 1836,
+    "honest_paid": 1836,
+    "value_settled": 3789664,
+    "hold": 129,
+    "honest_held": 111,
+    "rejected": 75,
+    "fraud_held": 18
+   },
+   "trade": {
+    "certified": 412,
+    "honest_paid": 412,
+    "value_settled_lakh": 34557,
+    "rejected": 47,
+    "fraud_blocked": 18,
+    "false_reject": 29
+   },
+   "agent_commerce": {
+    "held_then_released": 152,
+    "held_then_blocked": 27,
+    "certified": 2570,
+    "honest_paid": 2570,
+    "value_settled": 9782280,
+    "micro_contracts": 1453,
+    "micro_value": 307397,
+    "hold": 175,
+    "honest_held": 175,
+    "rejected": 168,
+    "fraud_blocked": 168
+   },
+   "insurance": {
+    "policies_bound": 1153,
+    "applications_declined": 81,
+    "honest_application_declined": 15,
+    "hold": 98,
+    "honest_held": 86,
+    "rejected": 12,
+    "fraud_blocked": 12,
+    "certified": 59,
+    "value_settled": 2817766
+   },
+   "certifications": {
+    "certified": 652,
+    "certified_organic": 101,
+    "value_certified": 5883200,
+    "certified_education": 390,
+    "certified_technical": 161,
+    "rejected": 147,
+    "fraud_blocked": 147,
+    "hold": 61,
+    "honest_held": 61,
+    "public_verifications": 2349
+   },
+   "workflows": {
+    "opened": 761,
+    "rejected": 98,
+    "fraud_blocked": 98,
+    "certified": 414,
+    "value_settled": 30585421,
+    "certified_freelance": 212,
+    "certified_rental": 202
+   },
+   "credit": {
+    "certified": 406,
+    "value_settled": 165769927,
+    "mortgages": 49,
+    "rejected": 100,
+    "fraud_blocked": 100
+   },
+   "fees_shaped": {
+    "merchant": 3672,
+    "trade": 2884000,
+    "hospital": 143935,
+    "agent_commerce": 2570,
+    "insurance": 11800,
+    "certifications": 147080,
+    "credit": 203000,
+    "workflows": 91549,
+    "welfare": 446895,
+    "crop": 0
+   },
+   "value": {
+    "capital_released": 11149921.005041094,
+    "cost_savings": 29057471.380000006,
+    "honest_delayed": 707,
+    "enabled_count": 745,
+    "enabled_value": 346138449.6,
+    "settlement_days_avg": 8.7
+   }
+  },
+  {
+   "cycle": 45,
+   "welfare": {
+    "certified": 89321,
+    "honest_paid": 89269,
+    "rejected": 8876,
+    "fraud_blocked": 8876,
+    "missed_fraud": 52,
+    "hold": 65,
+    "honest_held": 52,
+    "fraud_held": 13
+   },
+   "hospital": {
+    "certified": 2598,
+    "honest_paid": 2583,
+    "hold": 202,
+    "fraud_held": 23,
+    "rejected": 526,
+    "fraud_blocked": 441,
+    "honest_held": 179,
+    "false_reject": 85,
+    "missed_fraud": 15
+   },
+   "merchant": {
+    "held_then_released": 101,
+    "honest_released": 111,
+    "missed_fraud": 9,
+    "held_then_blocked": 28,
+    "fraud_blocked": 80,
+    "certified": 1840,
+    "honest_paid": 1840,
+    "value_settled": 3852460,
+    "rejected": 71,
+    "hold": 106,
+    "honest_held": 89,
+    "fraud_held": 17
+   },
+   "trade": {
+    "certified": 475,
+    "honest_paid": 475,
+    "value_settled_lakh": 39051,
+    "rejected": 38,
+    "false_reject": 17,
+    "fraud_blocked": 21
+   },
+   "agent_commerce": {
+    "held_then_released": 148,
+    "held_then_blocked": 27,
+    "certified": 2737,
+    "honest_paid": 2737,
+    "value_settled": 10759563,
+    "hold": 158,
+    "honest_held": 158,
+    "micro_contracts": 1563,
+    "micro_value": 333737,
+    "rejected": 146,
+    "fraud_blocked": 146
+   },
+   "insurance": {
+    "policies_bound": 1114,
+    "applications_declined": 90,
+    "honest_application_declined": 16,
+    "hold": 100,
+    "honest_held": 85,
+    "rejected": 6,
+    "fraud_blocked": 6,
+    "certified": 57,
+    "value_settled": 2778179
+   },
+   "certifications": {
+    "certified": 660,
+    "certified_education": 389,
+    "value_certified": 6074000,
+    "certified_technical": 171,
+    "rejected": 151,
+    "fraud_blocked": 151,
+    "hold": 46,
+    "honest_held": 46,
+    "certified_organic": 100,
+    "public_verifications": 3448
+   },
+   "workflows": {
+    "opened": 809,
+    "rejected": 164,
+    "fraud_blocked": 164,
+    "certified": 651,
+    "value_settled": 84453176,
+    "certified_procurement": 200,
+    "certified_freelance": 220,
+    "certified_rental": 231
+   },
+   "credit": {
+    "certified": 403,
+    "value_settled": 172197691,
+    "rejected": 97,
+    "fraud_blocked": 97,
+    "mortgages": 52
+   },
+   "fees_shaped": {
+    "merchant": 3680,
+    "trade": 3325000,
+    "hospital": 142890,
+    "agent_commerce": 2737,
+    "insurance": 11400,
+    "certifications": 151850,
+    "credit": 201500,
+    "workflows": 253029,
+    "welfare": 446605,
+    "crop": 0
+   },
+   "value": {
+    "capital_released": 12198321.882739725,
+    "cost_savings": 29176238.180000003,
+    "honest_delayed": 677,
+    "enabled_count": 762,
+    "enabled_value": 391087869.0,
+    "settlement_days_avg": 8.5
    }
   }
  ]
