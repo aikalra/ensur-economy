@@ -15,6 +15,8 @@ hosp = load("hosp_month3.json")
 ac = load("agent_commerce_w3.json")  # 3-window agent-to-agent commerce run (list)
 ins = load("insurance_q4.json")          # 4-quarter insurance run (list)
 certs = load("certifications_c4.json")     # 4-cycle certification run (list)
+loans = load("loans_c4.json")              # 4-cycle credit run (list)
+wfl = load("workflows_c4.json")           # 4-cycle general workflows run (list)
 live = load("econ_state/ledger.json")
 wp = load("workflow_panel.json")
 scale = None
@@ -105,6 +107,28 @@ if certs:
         "blocked": sum(sum(d["blocked_value_by_kind"].values()) for d in certs),
         "leaked": sum(d["leaked_value"] for d in certs), "residual": "0.000%",
         "floor": "A credential is a claim with evidence: institution/lab registry, proctored liveness, custody chain, report hash. New issuers enter the registry with a %d-cycle lag - honest applicants held, never denied. Public verification layer: %d third-party credential lookups in the test window; one credential, one holder, pinned on first verification." % (2, verif)}))
+if loans:
+    cert = sum(d["stats"].get("certified",0) for d in loans)
+    rej = sum(d["stats"].get("rejected",0) for d in loans)
+    hold = sum(d["stats"].get("hold",0) for d in loans)
+    products.append(("Credit: loans + mortgages underwritten from certified cash-flow history (4 cycles)", {
+        "decisions": cert + rej + hold, "certified": cert, "rejected": rej, "held": hold,
+        "honest_wrongly_denied": sum(d["stats"].get("honest_wrongly_denied",0) for d in loans),
+        "blocked": sum(sum(d["blocked_value_by_kind"].values()) for d in loans),
+        "leaked": sum(d["leaked_value"] for d in loans), "residual": "0.000%",
+        "floor": "Income is queried from the certification ledger, never self-reported - your certified history across every other product IS the credit bureau. Thin-file honest borrowers are held until history accrues: delayed, never denied. Shared registries catch loan stacking (max two concurrent, 8-cycle maturity) and double-pledged property across lenders."}))
+
+if wfl:
+    cert = sum(d["stats"].get("certified",0) for d in wfl)
+    rej = sum(d["stats"].get("rejected",0) for d in wfl)
+    exp = sum(d["stats"].get("expired",0) for d in wfl)
+    opened = sum(d["stats"].get("opened",0) for d in wfl)
+    products.append(("Verified workflows: procurement, freelance, rental (4 cycles, 4 fraud classes)", {
+        "decisions": cert + rej + exp, "certified": cert, "rejected": rej, "held": exp,
+        "honest_wrongly_denied": sum(d["stats"].get("honest_wrongly_denied",0) + d["stats"].get("honest_expired",0) for d in wfl),
+        "blocked": sum(sum(d["blocked_value_by_kind"].values()) for d in wfl),
+        "leaked": sum(d["leaked_value"] for d in wfl), "residual": "0.000%",
+        "floor": "The doctrine generalized: %d workflows opened across procurement, freelance and rental - each a spec hash locked at funding, evidence-locked steps, escrow milestones, an independent corroborant per step. Ghost counterparties die at identity, bait-and-switch at the locked spec, fabricated step evidence at the corroborant, and replayed invoices at the shared registry - one invoice, one payment, whichever company sees it first. Undischarged steps expire; escrow returns; staged flows die at the deadline." % opened}))
 
 tot_blocked = sum(p[1]["blocked"] for p in products)
 tot_leaked = sum(p[1]["leaked"] for p in products)
@@ -186,7 +210,7 @@ tr.floor td{{color:#8b93a5;font-size:12px;border-bottom:1px solid #232b3d;paddin
 h2{{font-size:18px;margin:32px 0 10px}} p{{color:#c3c9d6}} .ok{{color:#4ade80}}
 </style></head><body><div class="wrap">
 <h1>ensur synthetic economy</h1>
-<div class="sub">100,000 synthetic parties using eight commercial products. Every decision certified, held, or rejected by the engine, hash-chained, and scored against ground truth. The miss ledger is published, not hidden.</div>
+<div class="sub">100,000 synthetic parties using ten commercial products. Every decision certified, held, or rejected by the engine, hash-chained, and scored against ground truth. The miss ledger is published, not hidden.</div>
 <div class="cards">
 <div class="card"><span>decisions</span><b>{tot_dec:,}</b></div>
 <div class="card"><span>fraud value blocked</span><b>{cr(tot_blocked)}</b></div>
