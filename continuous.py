@@ -11,6 +11,7 @@ from merchant_adv4 import run_day as merchant_day
 from agent_commerce import run_window as agent_window  # evolved pack: spoof/ring adversaries, timeout releases
 from trade import run_trade_week
 from insurance import run_quarter as insurance_quarter  # Phase 2: carrier underwriting + claims
+from certifications import run_certification_cycle  # Phase 3: education/organic/technical credentials
 from economy_all import welfare_cycle, name_sim
 
 import os as _os
@@ -88,6 +89,11 @@ def advance_cycle():
     ledger["insurance_pending"] = ins.pop("pending")
     ledger["insurance_registry"] = ins.pop("registry")
     entry["insurance"] = ins["stats"]; i_gpv = ins["stats"].get("value_settled", 0)
+    cf = run_certification_cycle(eng, pop, cycle, rng, pending=ledger.get("cert_pending", []),
+                                 cred_registry=ledger.get("cert_registry", {}))
+    ledger["cert_pending"] = cf.pop("pending")
+    ledger["cert_registry"] = cf.pop("registry")
+    entry["certifications"] = cf["stats"]; cf_gpv = cf["stats"].get("value_certified", 0)
     eng.db.execute('DELETE FROM source_events'); eng.commit()
     def bump(d, k, v): d[k] = d.get(k, 0) + v
     # Workflow-shaped pricing (economy lesson, month 11): per-event where baseline delay is short
@@ -99,12 +105,14 @@ def advance_cycle():
               "hospital": h["stats"]["certified"] * SHAPED_PER_EVENT["hospital"],
               "agent_commerce": a["stats"].get("certified", 0) * SHAPED_PER_EVENT["agent_commerce"],
               "insurance": ins["stats"].get("certified", 0) * SHAPED_PER_EVENT["insurance"],
+              "certifications": cf.get("fees", 0),  # real collected per-track credential fees
               "welfare": w_gpv * FEE_RATE, "crop": c_gpv * FEE_RATE}
     entry["fees_shaped"] = {k: round(v) for k, v in shaped.items()}
     for k, v in shaped.items(): bump(ledger.setdefault("fees_shaped_by_product", {}), k, v)
     for prod, gpv, leak in (("welfare", w_gpv, wl), ("hospital", h_gpv, h["leaked_value"]),
                             ("merchant", m_gpv, m["leaked_value"]), ("trade", t_gpv, t["leaked_value"]),
                             ("agent_commerce", a_gpv, a["leaked_value"]), ("insurance", i_gpv, ins["leaked_value"]),
+                            ("certifications", cf_gpv, cf["leaked_value"]),
                             ("crop", c_gpv, c_out["leaked_value"] if c_out else 0)):
         bump(ledger["gpv_by_product"], prod, gpv)
         bump(ledger["fees_by_product"], prod, gpv * FEE_RATE)
@@ -115,12 +123,13 @@ def advance_cycle():
     for k2, v2 in t["blocked_value_by_kind"].items(): bump(ledger["blocked_by_product"], f"trade:{k2}", v2)
     for k2, v2 in a["blocked_value_by_kind"].items(): bump(ledger["blocked_by_product"], f"agent:{k2}", v2)
     for k2, v2 in ins["blocked_value_by_kind"].items(): bump(ledger["blocked_by_product"], f"insurance:{k2}", v2)
+    for k2, v2 in cf["blocked_value_by_kind"].items(): bump(ledger["blocked_by_product"], f"cert:{k2}", v2)
     if c_out:
         for k2, v2 in c_out["blocked_value_by_label"].items(): bump(ledger["blocked_by_product"], f"crop:{k2}", v2)
     # ---- Beyond fraud: what certification is worth (steering 2026-09-12 8:02 AM) ----
     # All baselines are modeling assumptions, labeled as such on the dashboard. Never present as measured fact.
-    BASELINE_DAYS = {"welfare": 45, "hospital": 2, "merchant": 2, "trade": 7, "crop": 180, "agent_commerce": 1, "insurance": 60}  # manual verification/settlement latency
-    BASELINE_COST = {"welfare": 300, "hospital": 150, "merchant": 5, "trade": 2000, "crop": 500, "agent_commerce": 100, "insurance": 400}  # Rs manual cost per decision
+    BASELINE_DAYS = {"welfare": 45, "hospital": 2, "merchant": 2, "trade": 7, "crop": 180, "agent_commerce": 1, "insurance": 60, "certifications": 30}  # manual verification/settlement latency
+    BASELINE_COST = {"welfare": 300, "hospital": 150, "merchant": 5, "trade": 2000, "crop": 500, "agent_commerce": 100, "insurance": 400, "certifications": 200}  # Rs manual cost per decision
     ENGINE_COST = 0.02        # Rs compute per certified decision (measured: ~1,400 decisions/s on one core)
     COST_OF_CAPITAL = 0.12    # p.a. - value of money arriving earlier
     SMALL_TICKET_CNT, SMALL_TICKET_VAL = 0.35, 0.15   # merchant settlements below manual reconciliation break-even
@@ -131,7 +140,8 @@ def advance_cycle():
              "trade": (t_gpv, t["stats"]["certified"], 0),
              "crop": (c_gpv, c_out["stats"]["certified"] if c_out else 0, 0),
              "agent_commerce": (a_gpv, a["stats"].get("certified", 0), a["stats"].get("hold", 0)),
-             "insurance": (i_gpv, ins["stats"].get("certified", 0), ins["stats"].get("hold", 0))}
+             "insurance": (i_gpv, ins["stats"].get("certified", 0), ins["stats"].get("hold", 0)),
+             "certifications": (cf_gpv, cf["stats"].get("certified", 0), cf["stats"].get("hold", 0))}
     val = {"capital_released": 0.0, "cost_savings": 0.0, "honest_delayed": 0,
            "enabled_count": 0, "enabled_value": 0.0, "_days_num": 0.0, "_gpv_den": 0.0}
     for prod, (gpv, cert, hold) in pdata.items():
