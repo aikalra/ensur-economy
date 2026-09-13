@@ -1,0 +1,51 @@
+[
+ {
+  "stats": {
+   "opened": 177
+  },
+  "leaked_value": 0,
+  "blocked_value_by_kind": {}
+ },
+ {
+  "stats": {
+   "opened": 143
+  },
+  "leaked_value": 0,
+  "blocked_value_by_kind": {}
+ },
+ {
+  "stats": {
+   "opened": 153,
+   "certified": 108,
+   "value_settled": 8152856,
+   "certified_freelance": 51,
+   "certified_rental": 57,
+   "rejected": 17,
+   "fraud_blocked": 17
+  },
+  "leaked_value": 0,
+  "blocked_value_by_kind": {
+   "fake_step_evidence": 833475,
+   "ghost_counterparty": 147667,
+   "spec_bait_switch": 287121
+  }
+ },
+ {
+  "stats": {
+   "opened": 158,
+   "certified": 118,
+   "value_settled": 15824540,
+   "certified_procurement": 44,
+   "rejected": 35,
+   "fraud_blocked": 35,
+   "certified_freelance": 27,
+   "certified_rental": 47
+  },
+  "leaked_value": 0,
+  "blocked_value_by_kind": {
+   "spec_bait_switch": 1023030,
+   "ghost_counterparty": 1315149,
+   "fake_step_evidence": 1558209
+  }
+ }
+]
