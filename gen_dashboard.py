@@ -18,6 +18,7 @@ certs = load("certifications_c4.json")     # 4-cycle certification run (list)
 loans = load("loans_c4.json")              # 4-cycle credit run (list)
 wfl = load("workflows_c4.json")           # 4-cycle general workflows run (list)
 live = load("econ_state/ledger.json")
+pm = load("econ_state/platform_metrics.json")
 wp = load("workflow_panel.json")
 scale = None
 import subprocess
@@ -179,6 +180,17 @@ if live and live.get("value_totals"):
 <p class="sub">Baselines are modeling assumptions in continuous.py (manual verification latency and cost per product, 12% cost of capital), not measured market facts. Settlement compression: what used to wait for manual review - welfare disbursal ~45d, crop survey settlement ~180d, trade document checking ~7d, merchant reconciliation T+2, hospital pre-auth ~2d - settles at certification time. Enabled transactions: sub-break-even merchant tickets, parametric crop payouts with no claim filed, trade deals too small for manual LC economics.</p>"""
 
 
+pm_section = ""
+if pm:
+    pm_section = ("<p>Blended realized take rate <b>" + str(pm["take_rate_bps_overall"]) + " bps</b> "
+      "(module-priced fees, not the 25bps modeling layer): certifications " + str(pm["take_rate_bps_by_product"].get("certifications")) + " bps, "
+      "insurance " + str(pm["take_rate_bps_by_product"].get("insurance")) + " bps, workflows " + str(pm["take_rate_bps_by_product"].get("workflows")) + " bps, "
+      "welfare " + str(pm["take_rate_bps_by_product"].get("welfare")) + " bps, credit " + str(pm["take_rate_bps_by_product"].get("credit")) + " bps, "
+      "agent commerce " + str(pm["take_rate_bps_by_product"].get("agent_commerce")) + " bps. "
+      "Party-to-party commerce is <b>" + str(pm["p2p_share_pct"]) + "%</b> of all value moved (Rs " + f"{pm['p2p_gpv_crore']:,}" + " cr) - "
+      "the rail mostly enables commerce between parties, not institutional disbursement. "
+      "Realized fees Rs " + f"{pm['fees_total_crore']:,}" + " cr on Rs " + f"{pm['gpv_total_crore']:,}" + " cr moved.</p>")
+
 wf_section = "<p>Workflow panel not generated.</p>"
 if wp:
     arows = "".join(f"<tr><td class='pn'>{prod}</td><td>{' &rarr; '.join(html.escape(l) for l in layers)}</td><td>{len(layers)}</td></tr>"
@@ -221,7 +233,7 @@ h2{{font-size:18px;margin:32px 0 10px}} p{{color:#c3c9d6}} .ok{{color:#4ade80}}
 <h2>Products</h2>
 <table><tr><th>product / run</th><th>decisions</th><th>certified</th><th>rejected</th><th>held</th><th>honest denied</th><th>blocked</th><th>leaked</th><th>residual</th></tr>
 {rows}</table>
-<h2>Live economy (continuous run)</h2>{live_section}\n<h2>Beyond fraud: what certification is worth</h2>{value_section}
+<h2>Live economy (continuous run)</h2>{live_section}\n<h2>Platform layer - what the rail earns</h2>{pm_section}\n<h2>Beyond fraud: what certification is worth</h2>{value_section}
 <h2>Verified workflows - every product is a mini business</h2>{wf_section}
 <h2>Audit chains</h2>{audit_line}
 <h2>What the economy taught (product doctrine, discovered not written)</h2>
