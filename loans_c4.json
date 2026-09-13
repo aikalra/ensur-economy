@@ -1,0 +1,69 @@
+[
+ {
+  "stats": {
+   "certified": 77,
+   "value_settled": 49356473,
+   "mortgages": 17,
+   "rejected": 17,
+   "fraud_blocked": 17
+  },
+  "leaked_value": 0,
+  "blocked_value_by_kind": {
+   "loan_stacking": 3235929,
+   "income_fabrication": 5386513,
+   "straw_borrower": 671221
+  }
+ },
+ {
+  "stats": {
+   "rejected": 18,
+   "fraud_blocked": 18,
+   "certified": 66,
+   "value_settled": 36402094,
+   "mortgages": 12,
+   "hold": 6,
+   "honest_held": 6
+  },
+  "leaked_value": 0,
+  "blocked_value_by_kind": {
+   "income_fabrication": 1273329,
+   "loan_stacking": 2726554,
+   "straw_borrower": 404043
+  }
+ },
+ {
+  "stats": {
+   "rejected": 15,
+   "fraud_blocked": 15,
+   "certified": 79,
+   "value_settled": 42185449,
+   "hold": 11,
+   "honest_held": 11,
+   "mortgages": 14
+  },
+  "leaked_value": 0,
+  "blocked_value_by_kind": {
+   "loan_stacking": 5291895,
+   "straw_borrower": 2881548,
+   "income_fabrication": 582203
+  }
+ },
+ {
+  "stats": {
+   "rejected": 20,
+   "fraud_blocked": 20,
+   "certified": 71,
+   "value_settled": 27312536,
+   "mortgages": 8,
+   "hold": 16,
+   "honest_held": 16
+  },
+  "leaked_value": 0,
+  "blocked_value_by_kind": {
+   "loan_stacking": 354248,
+   "straw_borrower": 1062759,
+   "income_fabrication": 3230736,
+   "double_pledged_property": 2500000
+  }
+ }
+]
