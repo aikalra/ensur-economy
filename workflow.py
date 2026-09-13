@@ -79,6 +79,8 @@ for p in panel:
     pricing[p["workflow"]] = {
         "value_delivered_per_year": vd, "sustainable_fee_per_year": round(sustainable),
         "flat_fee_roi_at_025pct": p["roi_on_fees"],
+        "shaped_fee_per_year": round(sustainable),
+        "shaped_roi": round(vd / max(sustainable, 1), 1),
         "verdict": ("ad-valorem 0.25% sustainable" if p["roi_on_fees"] >= TARGET_ROI
                     else "ad-valorem fails here - price per event, not per rupee")}
 json.dump({"anatomy": ANATOMY, "panel": panel, "pricing_lesson": pricing,
