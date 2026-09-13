@@ -37,3 +37,6 @@
 - Fraud classes: ghost counterparty, invoice replay, fake step evidence, spec bait-and-switch. Self-test 4 cycles: all blocked, ZERO leak, audit valid (workflows_c4.json). Fixed one self-test edge: invoice_replay with an empty registry now falls back to fake_step_evidence (same pattern as loans double-pledge fallback).
 - A/B non-perturbation: 30k x 2 cycles, HEAD vs patched - every existing product byte-identical; only diff is the added workflows key in fees_shaped. rng sequenced last.
 - Canonical cycle 42 launched 2:04 PM - first canonical month with ten products.
+
+## 2026-09-13 ~2:30 PM — slim published ledger artifact
+- Publisher flagged docs/live_ledger.json (1.15MB, heading past 2MB). gen_published_ledger.py now writes it as cumulative totals + per-product maps + rolling 12-month history; full chain stays canonical on the box. Nothing else consumed the old full copy (verified: zero references in dashboard or generator).
