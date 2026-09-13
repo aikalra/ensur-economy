@@ -45,3 +45,12 @@
 - Dedicated running-app demo page, separate from the ten-product dashboard: one guided flow - claim enters, evidence checked against independent sources, CERTIFIED / STOPPED / HELD decisions, month-42 savings counters (3,287 claims, 459 fraud stopped, Rs 1.38cr leakage prevented, 178 honest held-then-paid), then A/B ministry economics (A: 0.5% + 15% recovery = Rs 20cr/mo, ministry keeps Rs 42.5cr; B: Rs 0 + 30% = Rs 15cr, ministry keeps Rs 35cr; at Rs 2,500cr/mo premium flow, 2% leakage - labeled illustrative).
 - Deterministic-in-time animation (#t=seconds renders exact state) so it can be frame-captured; 360 frames at 10fps via headless Chrome, assembled to karnataka-claims-rail-demo.mp4 (36s, 1280x720). Video visually verified via sampled frames.
 - For the user's review BEFORE anything goes to Puneet. Nothing sent externally.
+
+## 2026-09-13 ~4:15 PM — two scripted video cuts delivered for user approval
+- Cut A (problem-first) and Cut B (three outcomes: pay / hold / deny, positive ministry-first open), both 55s, exact script as on-screen captions, real month-42 numbers, A/B economics close. Page variants staged (docs/karnataka.html scripted rewrite, docs/karnataka_b.html); NOT published - waiting on user's pick. Videos delivered to parent for user review.
+- Month 44: first workflow settlements (414 settled: 212 freelance + 202 rental, Rs 3.06cr; 98 fraud blocked). Audit valid.
+
+## 2026-09-13 ~7:00 PM — Phase 6: platform layer metrics live
+- platform_metrics.py: post-cycle, ledger-derived, zero-perturbation. Emits econ_state/platform_metrics.json: module-real take rates per product (NOT the 25bps modeling layer): certifications 250bps, insurance 40.3, workflows 30.0, welfare 19.6, hospital 14.3, credit 10.6, merchant 7.4, trade 6.5, agent commerce 2.6. Blended 7.5bps; realized fees Rs 14.68cr on Rs 19,482cr moved. Party-to-party commerce = 92.2% of all value moved - the rail is mostly a marketplace enabler, not a disbursement pipe. Dashboard "Platform layer" strip added (verified visually).
+- The Stripe/Shopify answer from the running economy: the rail prices by workflow shape and earns 7.5bps blended; its highest-margin businesses are registries (credentials) and underwriting (insurance), its cheapest is micro-commerce - which is exactly why micro-commerce exists on it.
+- Month 47 closed: GPV Rs 19,482.4cr, fees Rs 48.71cr (modeling layer), leak 0.0135%, audit VALID.
