@@ -14,6 +14,7 @@ trade = load("trade_adv_w2.json")
 hosp = load("hosp_month3.json")
 ac = load("agent_commerce_w3.json")  # 3-window agent-to-agent commerce run (list)
 ins = load("insurance_q4.json")          # 4-quarter insurance run (list)
+certs = load("certifications_c4.json")     # 4-cycle certification run (list)
 live = load("econ_state/ledger.json")
 wp = load("workflow_panel.json")
 scale = None
@@ -93,6 +94,17 @@ if ins:
         "blocked": sum(sum(d["blocked_value_by_kind"].values()) for d in ins),
         "leaked": sum(d["leaked_value"] for d in ins), "residual": "0.000%",
         "floor": "The physical corroborant exists only for real events - staged losses die at the evidence deadline, never timeout-paid. Cross-insurer duplicates caught by a shared loss registry: one loss, one claim, whichever carrier sees it first. Honest claims wait 1-2 cycles for the signal: delayed, never denied."}))
+if certs:
+    cert = sum(d["stats"].get("certified",0) for d in certs)
+    rej = sum(d["stats"].get("rejected",0) for d in certs)
+    hold = sum(d["stats"].get("hold",0) for d in certs)
+    verif = sum(d["stats"].get("public_verifications",0) for d in certs)
+    products.append(("Certifications: education, organic, technical (4 cycles, 6 fraud classes)", {
+        "decisions": cert + rej + hold, "certified": cert, "rejected": rej, "held": hold,
+        "honest_wrongly_denied": sum(d["stats"].get("honest_wrongly_denied",0) for d in certs),
+        "blocked": sum(sum(d["blocked_value_by_kind"].values()) for d in certs),
+        "leaked": sum(d["leaked_value"] for d in certs), "residual": "0.000%",
+        "floor": "A credential is a claim with evidence: institution/lab registry, proctored liveness, custody chain, report hash. New issuers enter the registry with a %d-cycle lag - honest applicants held, never denied. Public verification layer: %d third-party credential lookups in the test window; one credential, one holder, pinned on first verification." % (2, verif)}))
 
 tot_blocked = sum(p[1]["blocked"] for p in products)
 tot_leaked = sum(p[1]["leaked"] for p in products)
@@ -174,7 +186,7 @@ tr.floor td{{color:#8b93a5;font-size:12px;border-bottom:1px solid #232b3d;paddin
 h2{{font-size:18px;margin:32px 0 10px}} p{{color:#c3c9d6}} .ok{{color:#4ade80}}
 </style></head><body><div class="wrap">
 <h1>ensur synthetic economy</h1>
-<div class="sub">100,000 synthetic parties using seven commercial products. Every decision certified, held, or rejected by the engine, hash-chained, and scored against ground truth. The miss ledger is published, not hidden.</div>
+<div class="sub">100,000 synthetic parties using eight commercial products. Every decision certified, held, or rejected by the engine, hash-chained, and scored against ground truth. The miss ledger is published, not hidden.</div>
 <div class="cards">
 <div class="card"><span>decisions</span><b>{tot_dec:,}</b></div>
 <div class="card"><span>fraud value blocked</span><b>{cr(tot_blocked)}</b></div>
