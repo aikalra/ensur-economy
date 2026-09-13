@@ -6,3 +6,12 @@
 
 ## Update 11:51 AM Sep 12
 - MONTH 12: first full continuous year complete (crop season 2 included). Cumulative GPV Rs 4,983.4cr, reference fees Rs 12.46cr, leak Rs 63.9L (0.0128% GPV), audit VALID. Pages green.
+
+## Update 6:09 PM Sep 12
+- Month-18 run killed mid-write by sandbox timeout (pop+db completed, ledger write did not). Clean recovery per README: fresh replay to 17 (GPV within 0.6% of legit, audit VALID), adopted preserved month-17 ledger as canonical, ran month 18 on it. Month 18 (crop season 3): GPV Rs 7,422.4cr, fees Rs 18.56cr, leak Rs 91.8L (0.0124%), audit VALID. Ledger history unbroken; published record untouched.
+
+## Update 11:53 PM Sep 12
+- MONTH 24: two full continuous years (crop season 4 ran). Cumulative GPV Rs 9,813.7cr, reference fees Rs 24.53cr, leak Rs 1.26cr (0.0128% GPV), audit VALID. workflow.py panel now shows ROI at shaped pricing (every workflow 3.0x) - loop closed on the pricing lesson.
+
+## Update 12:55 AM Sep 13
+- MONTH 25: cumulative GPV crossed Rs 10,000cr (Rs 10,247.3cr), leak Rs 1.32cr (0.0129%), audit VALID. Rail round 7 (month-24 bundle) never reached the publisher; re-sending month-25 bundle directly.
