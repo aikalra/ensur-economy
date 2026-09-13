@@ -1,0 +1,78 @@
+[
+ {
+  "stats": {
+   "certified": 122,
+   "certified_education": 93,
+   "certified_technical": 29,
+   "hold": 5,
+   "honest_held": 5,
+   "rejected": 24,
+   "fraud_blocked": 24,
+   "public_verifications": 776
+  },
+  "leaked_value": 0,
+  "blocked_value_by_kind": {
+   "unregistered_lab": 100000,
+   "diploma_mill": 54000,
+   "forged_lab_report": 60000,
+   "impersonated_test": 42000
+  }
+ },
+ {
+  "stats": {
+   "certified": 123,
+   "certified_education": 100,
+   "rejected": 28,
+   "fraud_blocked": 28,
+   "certified_technical": 23,
+   "hold": 11,
+   "honest_held": 11,
+   "public_verifications": 472
+  },
+  "leaked_value": 0,
+  "blocked_value_by_kind": {
+   "forged_lab_report": 100000,
+   "diploma_mill": 54000,
+   "unregistered_lab": 120000,
+   "impersonated_test": 48000
+  }
+ },
+ {
+  "stats": {
+   "certified": 147,
+   "certified_technical": 45,
+   "certified_education": 102,
+   "rejected": 23,
+   "fraud_blocked": 23,
+   "hold": 13,
+   "honest_held": 13,
+   "public_verifications": 884
+  },
+  "leaked_value": 0,
+  "blocked_value_by_kind": {
+   "forged_lab_report": 100000,
+   "diploma_mill": 42000,
+   "unregistered_lab": 20000,
+   "impersonated_test": 60000
+  }
+ },
+ {
+  "stats": {
+   "rejected": 24,
+   "fraud_blocked": 24,
+   "certified": 140,
+   "certified_education": 104,
+   "certified_technical": 36,
+   "hold": 16,
+   "honest_held": 16,
+   "public_verifications": 955
+  },
+  "leaked_value": 0,
+  "blocked_value_by_kind": {
+   "forged_lab_report": 100000,
+   "unregistered_lab": 100000,
+   "diploma_mill": 48000,
+   "impersonated_test": 36000
+  }
+ }
+]
