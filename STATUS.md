@@ -40,3 +40,8 @@
 
 ## 2026-09-13 ~2:30 PM — slim published ledger artifact
 - Publisher flagged docs/live_ledger.json (1.15MB, heading past 2MB). gen_published_ledger.py now writes it as cumulative totals + per-product maps + rolling 12-month history; full chain stays canonical on the box. Nothing else consumed the old full copy (verified: zero references in dashboard or generator).
+
+## 2026-09-13 ~2:55 PM — Karnataka ministry demo (docs/karnataka.html + video)
+- Dedicated running-app demo page, separate from the ten-product dashboard: one guided flow - claim enters, evidence checked against independent sources, CERTIFIED / STOPPED / HELD decisions, month-42 savings counters (3,287 claims, 459 fraud stopped, Rs 1.38cr leakage prevented, 178 honest held-then-paid), then A/B ministry economics (A: 0.5% + 15% recovery = Rs 20cr/mo, ministry keeps Rs 42.5cr; B: Rs 0 + 30% = Rs 15cr, ministry keeps Rs 35cr; at Rs 2,500cr/mo premium flow, 2% leakage - labeled illustrative).
+- Deterministic-in-time animation (#t=seconds renders exact state) so it can be frame-captured; 360 frames at 10fps via headless Chrome, assembled to karnataka-claims-rail-demo.mp4 (36s, 1280x720). Video visually verified via sampled frames.
+- For the user's review BEFORE anything goes to Puneet. Nothing sent externally.
